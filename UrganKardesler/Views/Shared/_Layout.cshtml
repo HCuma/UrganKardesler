@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@ViewData["Title"] - UrganKardesler</title>
+    <meta name="keywords" content="themeforest" />
+    <meta name="description" content="responsive html website template">
+    <meta name="author" content="codelayers">
+
+    <!-- Mobile view -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/logoyeni.png">
+    <link rel="stylesheet" type="text/css" href="js/bootstrap/bootstrap.min.css">
+
+    <!-- Google fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yesteryear" rel="stylesheet">
+
+    <!-- Template's stylesheets -->
+    <link rel="stylesheet" href="js/megamenu/stylesheets/screen.css">
+    <link rel="stylesheet" href="css/theme-default.css" type="text/css">
+    <link rel="stylesheet" href="js/loaders/stylesheets/screen.css">
+    <link rel="stylesheet" href="css/corporate.css" type="text/css">
+    <link rel="stylesheet" href="css/shortcodes.css" type="text/css">
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="fonts/Simple-Line-Icons-Webfont/simple-line-icons.css" media="screen" />
+    <link rel="stylesheet" href="fonts/et-line-font/et-line-font.css">
+    <link rel="stylesheet" href="js/parallax/main.css">
+    <!-- Template's stylesheets END -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Style Customizer's stylesheets -->
+    <!-- Style Customizer's stylesheets END -->
+    <!-- Skin stylesheet -->
+
+    @await RenderSectionAsync("pageScripts", required: false)
+</head>
+<body>
+    <div class="over-loader loader-live">
+        <div class="loader">
+            <div class="loader-item style4">
+                <div class="cube1"></div>
+                <div class="cube2"></div>
+            </div>
+        </div>
+    </div>
+    <!--end loading-->
+
+    <div class="wrapper-boxed">
+        <div class="site-wrapper">
+            @await Html.PartialAsync("Partials/_menu")
+            <!--end menu-->
+
+            @RenderBody()
+            <!--end content-->
+
+            @await Html.PartialAsync("Partials/_footer")
+            <!-- end section -->
+
+            <a href="#" class="scrollup"></a><!-- end scroll to top of the page-->
+        </div>
+        <!--end site wrapper-->
+    </div>
+    <!--end wrapper boxed-->
+    <!-- Scripts -->
+    <script src="js/jquery/jquery.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+
+    <script src="js/less/less.min.js" data-env="development"></script>
+
+    <!-- Scripts END -->
+    <!-- Template scripts -->
+    <script src="js/megamenu/js/main.js"></script>
+    <script src="js/owl-carousel/owl.carousel.js"></script>
+    <script src="js/owl-carousel/custom.js"></script>
+    <script src="js/countdown-timers/countdown/jquery.countdown.js"></script>
+    <script src="js/parallax/parallax-background.min.js"></script>
+
+    <script src="js/parallax/parallax-custom.js"></script>
+    <script src="js/loaders/loading-custom.js"></script>
+    <script src="js/functions/functions.js"></script>
+
+    <script>
+        $('#clock').countdown('2017/10/10').on('update.countdown', function (event) {
+            var $this = $(this).html(event.strftime(''
+                + '<p><span>%-w</span> <b>week%!w</b></p> '
+                + '<p><span>%-d</span> <b>day%!d</b></p> '
+                + '<p><span>%H</span> <b>hr </b></p>'
+                + '<p><span>%M</span> <b>min</b></p> '
+                + '<p><span>%S</span> <b>sec</b></p>'));
+        });
+    </script>
+    @await RenderSectionAsync("pageScripts", required: false)
+</body>
+</html>
