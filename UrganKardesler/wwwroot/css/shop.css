@@ -1,9 +1,9 @@
 /*
-Template: Aicsa
+Template: Biksy
 category: Shop
-Author: Codelayers
+Author: codelayers
 Version: 1.0
-Design and Developed by: Codelayers
+Design and Developed by: codelayers
 */
 
 
@@ -33,17 +33,93 @@ Design and Developed by: Codelayers
 .sp-feature-box-1{
 	width:100%;
 	float:left;
-	padding:70px 50px 50px 50px;
-	min-height:492px;
-	background-color:#101010;
+	padding:0;
 }
+
+.sp-top-banner-1{
+	position:relative;
+	width:100%;
+	float:left;
+	padding:0;
+	overflow: hidden;
+	transition: all 0.3s ease-out 0s;
+}
+.sp-top-banner-1 .img-box{
+	position: relative;
+	width:100%;
+	min-height:525px;
+	text-align:center;
+}
+.sp-top-banner-1 .img-box img {
+    width: 600px;
+    height: auto;
+    float: left;
+	transition: all 0.3s ease-out 0s;
+}
+.sp-top-banner-1 .img-box .overlay{
+	position: absolute;
+	width:100%;
+	float:left;
+	height:100%;
+	padding:150px 50px 50px 50px;
+	background-color:rgba(0, 0, 0, 0.2);
+}
+.sp-top-banner-1:hover .img-box img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+/*shop banner 2*/
+
+.sp-top-banner-2{
+	position:relative;
+	width:100%;
+	float:left;
+	padding:0;
+	overflow: hidden;
+	transition: all 0.3s ease-out 0s;
+}
+.sp-top-banner-2 .img-box{
+	position: relative;
+	width:100%;
+	min-height:525px;
+	text-align:center;
+	overflow: hidden;
+}
+.sp-top-banner-2 .img-box img {
+    width: 375px;
+    height: auto;
+    float: left;
+	transition: all 0.3s ease-out 0s;
+}
+.sp-top-banner-2 .img-box .overlay{
+	position: absolute;
+	width:100%;
+	float:left;
+	height:100%;
+	padding:150px 50px 50px 50px;
+	background-color:rgba(0, 0, 0, 0.2);
+}
+
+.sp-top-banner-2:hover .img-box img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+
+
+
 /* feature box 2
  ------------------------------ */
 .sp-feature-box-2{
 	width:100%;
 	float:left;
 	padding:20px;
-	background-color:#f51e46;
+	background-color:#69ca21;
 }
 
 /* feature box 3
@@ -71,7 +147,7 @@ Design and Developed by: Codelayers
 	line-height:30px;
 	border-radius:100%;
 	text-transform:uppercase;
-	background-color:#f51e46;
+	background-color:#69ca21;
 }
 .sp-feature-box-3 .img-box a.view-btn{
 	position:absolute;
@@ -121,8 +197,8 @@ Design and Developed by: Codelayers
 }
 .sp-feature-box-4 .submit-btn:hover{
 	color:#fff;
-	border:1px solid #f51e46;
-	background-color:#f51e46;
+	border:1px solid #69ca21;
+	background-color:#69ca21;
 }
 
 /* =========== footer paymen logos ============= */
@@ -162,8 +238,8 @@ Design and Developed by: Codelayers
 	transition: all 0.3s ease-out 0s;
 }
 .sp-sc-icons li a:hover, .sp-sc-icons li a.active{
-	color:#f51e46;
-	border:1px solid #f51e46;
+	color:#69ca21;
+	border:1px solid #69ca21;
 }
 	
 /*============ Section Titles ============ */
@@ -242,7 +318,7 @@ Design and Developed by: Codelayers
 	color:#101010;
 }
 .sp-sb-links li a:hover, .sp-sb-links li a.active {
-    color: #f51e46;
+    color: #69ca21;
 }
 .sp-sb-links li:last-child {
     border-bottom: medium none;
@@ -279,7 +355,7 @@ Design and Developed by: Codelayers
 	text-align:left;
 }
 .stars span i {
-    color: #f51e46;
+    color: #69ca21;
 }
 
 .pro-details {
@@ -389,8 +465,8 @@ ul.sp-cart-total li .price {
     width: 30%;
 }
 .sp-pr-code-btn:hover {
-    background-color: #f51e46;
-    border: 1px solid #f51e46;
+    background-color: #69ca21;
+    border: 1px solid #69ca21;
     color: #fff;
 }
 
@@ -412,7 +488,7 @@ ul.sp-cart-total li .price {
 }
 .sp-binfo:focus {
     outline: none !important;
-    border:1px solid #f51e46;
+    border:1px solid #69ca21;
 	transition: all 0.3s ease-out 0s;
 }
 .sp-binfo.less-width {

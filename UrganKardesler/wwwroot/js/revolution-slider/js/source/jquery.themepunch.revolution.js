@@ -874,7 +874,7 @@ var lAjax = function(s,o) {
 		if (o.errorm===undefined) 
 			o.errorm = "<br>Local Filesystem Detected !<br>Put this to your header:";
 		console.warn('Local Filesystem detected !');
-		o.errorm = o.errorm+'<br>&lt;script type="text/javascript" src="'+o.jsFileLocation+s+o.extensions_suffix+'"&gt;&lt;/script&gt;';
+		o.errorm = o.errorm+'<br>&lt;script src="'+o.jsFileLocation+s+o.extensions_suffix+'"&gt;&lt;/script&gt;';
 		console.warn(o.jsFileLocation+s+o.extensions_suffix+' could not be loaded !');
 		console.warn('Please use a local Server or work online or make sure that you load all needed Libraries manually in your Document.');
 		console.log(" ");

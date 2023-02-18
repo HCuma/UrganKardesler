@@ -5,6 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\images\clients\" />
+    <Folder Include="wwwroot\images\flickr\" />
+    <Folder Include="wwwroot\images\footer-bg\" />
+    <Folder Include="wwwroot\images\parallax\" />
+    <Folder Include="wwwroot\images\portfolio\" />
+    <Folder Include="wwwroot\images\rs-images\" />
+    <Folder Include="wwwroot\images\shortcodes\" />
+    <Folder Include="wwwroot\images\sliders\" />
+    <Folder Include="wwwroot\images\testimonials\" />
+    <Folder Include="wwwroot\js\modalbox\" />
+    <Folder Include="wwwroot\js\pagenation\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\js\loaders\.sass-cache\65e4c30c131f260ea88c3e4f2e16dfc2ba547e74\_utilities.scssc" />
     <None Include="wwwroot\js\loaders\.sass-cache\8ad51bcdb3bfb5f14ed00bff944b05ef20a7c962\ie.scssc" />
     <None Include="wwwroot\js\loaders\.sass-cache\8ad51bcdb3bfb5f14ed00bff944b05ef20a7c962\print.scssc" />
@@ -13,17 +29,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\blog\" />
-    <Folder Include="wwwroot\images\flickr\" />
-    <Folder Include="wwwroot\images\footer-bg\" />
-    <Folder Include="wwwroot\images\parallax\" />
-    <Folder Include="wwwroot\images\portfolio\" />
-    <Folder Include="wwwroot\images\shortcodes\" />
-    <Folder Include="wwwroot\images\testimonials\" />
-    <Folder Include="wwwroot\js\modalbox\" />
-    <Folder Include="wwwroot\js\pagenation\" />
-    <Folder Include="wwwroot\php\AJAX PHP\Sendmail version\order\smuploads\" />
-    <Folder Include="wwwroot\php\AJAX PHP\SMTP version\order\smuploads\" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
 </Project>

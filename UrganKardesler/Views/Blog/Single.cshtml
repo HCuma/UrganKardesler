@@ -1,0 +1,43 @@
+﻿@model BlogVM
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+
+<section class="section-side-image clearfix">
+    <div class="img-holder col-md-12 col-sm-12 col-xs-12">
+        <div class="background-imgholder" style="background:url(/images/blog/@Model.ThumbnailName);"><img class="nodisplay-image" src="~/images/blog/@Model.ThumbnailName" alt="" /> </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12 clearfix nopadding">
+                <div class="header-inner less-height">
+                    <div class="overlay">
+                        <div class="text text-center">
+                            <h3 class="uppercase text-white less-mar-1 title">@Model.Title</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class=" clearfix"></div>
+<!--end header section -->
+<div class="pagenation-holder">
+      <div class="container">
+
+        <div class="blog-post-info">
+            <span><i class="fa fa-folder"></i> @Model.Category</span> 
+            <span><i class="fa fa-user"></i> @Model.AuthorName </span> 
+            <span><i class="fa fa-calendar"></i> @Model.CreatedDate </span> 
+        </div>
+
+      </div>
+    </div>
+    <div class="col-divider-margin-4"></div>
+<div class="container">
+    <p>@Model.Article</p>
+</div>
+<div class="col-divider-margin-4"></div>

@@ -6,9 +6,9 @@
 	$(function () {
 	$('.percent').percentageLoader({
 		valElement: 'p',
-		strokeWidth:5,
+		strokeWidth:2,
 		bgColor: 'rgba(0, 0, 0, 0.2)',
-		ringColor: '#a9cd2e',
+		ringColor: '#69ca21',
 		textColor: '#101010',
 		fontSize: '24px',
 		fontWeight: 'normal'
@@ -22,7 +22,7 @@
 		valElement: 'p',
 		strokeWidth:5,
 		bgColor: 'rgba(255, 255, 255, 0.1)',
-		ringColor: '#f51e46',
+		ringColor: '#69ca21',
 		textColor: '#fff',
 		fontSize: '24px',
 		fontWeight: 'normal'
@@ -45,7 +45,18 @@
 	});
 
 
+$(function () {
+	$('.percent-4').percentageLoader({
+		valElement: 'p',
+		strokeWidth:2,
+		bgColor: 'rgba(0, 0, 0, 0.2)',
+		ringColor: '#69ca21',
+		textColor: '#101010',
+		fontSize: '18px',
+		fontWeight: 'normal'
+	});
 
+	});
 
 	
 

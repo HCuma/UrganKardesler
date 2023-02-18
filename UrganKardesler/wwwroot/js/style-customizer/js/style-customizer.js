@@ -7,7 +7,7 @@
 
 // Less variables
 var lessVars = {
-	'colorPrimary': '#a9cd2e',
+	'colorPrimary': '#69ca21',
 	'colorSecondary': '#b2c81e',
 	'colorTertiary': '#38cef9',
 	'colorBg': '#ffffff',

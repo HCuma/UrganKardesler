@@ -474,6 +474,10 @@
 	color:#fff;
 	border-bottom:1px solid #fff;
 	}
+.ttitle.dark strong{
+	color:#101010;
+	border-bottom:1px solid #101010;
+	}
 .ttitle{
 	padding-top:20px;
 	margin:15px 0;
@@ -599,8 +603,8 @@
 }
 .tabstyle-7 .responsive-tabs li a:hover, .tabstyle-7 .responsive-tabs li.active, .tabstyle-7 .responsive-tabs li.active a {
 	color: #fff;
-	border-right:1px solid #a9cd2e;
-	background-color: #a9cd2e;
+	border-right:1px solid #fce206;
+	background-color: #fce206;
 }
 
 .tabstyle-7 .responsive-tabs-content {
@@ -659,7 +663,7 @@
 }
 .tabstyle-8 .responsive-tabs li a:hover, .tabstyle-8 .responsive-tabs li a:hover span, .tabstyle-8 .responsive-tabs li.active, .tabstyle-8 .responsive-tabs li.active a, .tabstyle-8 .responsive-tabs li.active a span {
 	color: #fff;
-	background-color:#a9cd2e;
+	background-color:#fce206;
 }
 .tabstyle-8 .responsive-tabs-content {
 	margin-bottom: 20px;
@@ -673,7 +677,7 @@
 	float:left;
 	width:100%;
 	padding:60px;
-	background-color:#a9cd2e;
+	background-color:#fce206;
 }
 .responsive-tabs-content.more-mar-1 {
     margin-bottom: 45px;
@@ -819,7 +823,7 @@
 	background: transparent;
 }
 .tabstyle-10 .responsive-tabs li a:hover .primary-circle, .tabstyle-10 .responsive-tabs li.active .primary-circle {
-	border:5px solid #a9cd2e;
+	border:5px solid #fce206;
 	background-color:#fff;
 }
 
@@ -903,14 +907,14 @@
 	padding-bottom:15px;
 }
 .tabstyle-11 .responsive-tabs li a:hover, .tabstyle-11 .responsive-tabs li.active, .tabstyle-11 .responsive-tabs li.active a {
-	color: #a9cd2e;
+	color: #69ca21;
 	background: #fff;
 }
 .tabstyle-11 .responsive-tabs-content {
 	margin-bottom: 20px;
 }
 .tabstyle-11 .responsive-tabs li a:hover span, .tabstyle-11 .responsive-tabs li.active a span {
-	color: #a9cd2e;
+	color: #69ca21;
 }
 .tabstyle-11-feature-box {
 	float:left;
@@ -922,6 +926,268 @@
 	width:100%;
 	padding:0;
 }
+
+
+/* Tab atyle 12
+ ------------------------------ */
+ 
+.tab-content-holder-12 {
+    width: 100%;
+    padding: 0 0 0 0;
+	margin-top:0;
+	
+
+}
+
+.tabstyle-12 .responsive-tabs {
+	width: 70%;
+	margin:0 0 0 18%;
+	padding: 0;
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	
+	
+}
+.tabstyle-12 .responsive-tabs li {
+	width: 190px;
+	margin: 0;
+	text-align: center;
+	line-height: 50px;
+	display:inline-block;
+	padding: 0;
+	color: #000;
+	border-right:1px solid #e5e5e5;
+	background: #fff;
+}
+
+.tabstyle-12 .responsive-tabs li .primary-circle {
+	position: relative;
+	width: 25px;
+	height:25px;
+	margin: 0;
+	left: 82px;
+	bottom: -162px;
+	border:5px solid #727272;
+	background-color:#fff;
+	border-radius:100%;
+}
+
+
+.tabstyle-12 .responsive-tabs li a {
+	display: block;
+	padding: 40px 20px;
+	text-align: center;
+	line-height: 23px;
+	font-size:16px;
+	font-weight:normal;
+	color: #000;
+	text-decoration: none;
+	transition: all 0.3s ease-out 0s;
+}
+.tabstyle-12 .responsive-tabs li a span {
+	font-size:32px;
+	padding-bottom:15px;
+}
+.tabstyle-12 .responsive-tabs li a:hover, .tabstyle-12 .responsive-tabs li.active, .tabstyle-12 .responsive-tabs li.active a {
+	color: #fff;
+	background: #69ca21;
+}
+.tabstyle-12 .responsive-tabs-content {
+	margin-bottom: 20px;
+}
+.tabstyle-12 .responsive-tabs li a:hover span, .tabstyle-12 .responsive-tabs li.active a span {
+	color: #fff;
+}
+
+
+.tabstyle-12-feature-box {
+	float:left;
+	width:100%;
+	padding:0px;
+}
+.tabstyle-12-feature-box-2 {
+	float:left;
+	width:100%;
+	padding:0;
+}
+
+
+/* Tab atyle 13
+ ------------------------------ */
+ 
+.tab-content-holder-13 {
+    width: 100%;
+    padding: 0 0 0 0;
+	margin-top:0;
+}
+
+.tabstyle-13 .responsive-tabs {
+	width: 70%;
+	margin:0 0 0 26%;
+	padding: 0;
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	
+	
+}
+.tabstyle-13 .responsive-tabs li {
+	width: 300px;
+	margin: 0;
+	text-align: center;
+	line-height: 50px;
+	display:inline-block;
+	padding: 0;
+	color: #000;
+	background-color: #fff;
+	border-right:1px solid #e4e4e4;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+.tabstyle-13 .responsive-tabs li:last-child {
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	border-right:none;
+}
+.tabstyle-13 .responsive-tabs li .primary-circle {
+	position: relative;
+	width: 25px;
+	height:25px;
+	margin: 0;
+	left: 82px;
+	bottom: -162px;
+	border:5px solid #727272;
+	background-color:#fff;
+	border-radius:100%;
+}
+
+
+.tabstyle-13 .responsive-tabs li a {
+	display: block;
+	padding: 25px 20px;
+	text-align: center;
+	line-height: 23px;
+	font-size:16px;
+	font-weight: 600;
+	color: #000;
+	text-decoration: none;
+	transition: all 0.3s ease-out 0s;
+}
+.tabstyle-13 .responsive-tabs li a span {
+	font-size:32px;
+	padding-bottom:15px;
+}
+.tabstyle-13 .responsive-tabs li a:hover, .tabstyle-13 .responsive-tabs li.active, .tabstyle-13 .responsive-tabs li.active a {
+	color: #69ca21;	
+}
+.tabstyle-13 .responsive-tabs-content {
+	margin-bottom: 20px;
+}
+.tabstyle-13 .responsive-tabs li a:hover span, .tabstyle-13 .responsive-tabs li.active a span {
+	color: #fff;
+}
+
+
+.tabstyle-13-feature-box {
+	float:left;
+	width:100%;
+	padding:0px;
+}
+.tabstyle-13-feature-box-2 {
+	float:left;
+	width:100%;
+	padding:0;
+}
+
+
+
+
+/* Tab atyle 14
+ ------------------------------ */
+ 
+.tab-content-holder-14 {
+    width: 100%;
+    padding: 0 0 0 0;
+	margin-top:0;
+	
+
+}
+
+.tabstyle-14 .responsive-tabs {
+	width: 70%;
+	margin:0 0 0 18%;
+	padding: 0;
+	text-align: center;
+	list-style-type: none;
+	position: relative;
+	
+	
+}
+.tabstyle-14 .responsive-tabs li {
+	width: 220px;
+	margin: 10px;
+	text-align: center;
+	line-height: 50px;
+	display:inline-block;
+	padding: 0;
+	color: #000;
+	background: #fff;
+}
+
+.tabstyle-14 .responsive-tabs li .primary-circle {
+	position: relative;
+	width: 25px;
+	height:25px;
+	margin: 0;
+	left: 82px;
+	bottom: -162px;
+	background-color:#fff;
+	border-radius:100%;
+}
+
+
+.tabstyle-14 .responsive-tabs li a {
+	display: block;
+	padding: 65px 20px;
+	text-align: center;
+	line-height: 23px;
+	font-size:16px;
+	font-weight:normal;
+	color: #000;
+	text-decoration: none;
+/*	border:10px solid #fff;*/
+	transition: all 0.3s ease-out 0s;
+}
+.tabstyle-14 .responsive-tabs li a span {
+	font-size:32px;
+	padding-bottom:15px;
+}
+.tabstyle-14 .responsive-tabs li a:hover, .tabstyle-14 .responsive-tabs li.active, .tabstyle-14 .responsive-tabs li.active a {
+	color: #fff;
+	background-color:#69ca21;
+}
+.tabstyle-14 .responsive-tabs-content {
+	margin-bottom: 20px;
+}
+.tabstyle-14 .responsive-tabs li a:hover span, .tabstyle-14 .responsive-tabs li.active a span {
+	color: #fff;
+}
+
+
+.tabstyle-14-feature-box {
+	float:left;
+	width:100%;
+	padding:0px;
+}
+.tabstyle-14-feature-box-2 {
+	float:left;
+	width:100%;
+	padding:0;
+}
+
 
 
 
@@ -1043,9 +1309,8 @@
 	font-size:34px;
 }
 .tabs-left2-holder .responsive-tabs li a:hover, .tabs-left2-holder .responsive-tabs li.active, .tabs-left2-holder .responsive-tabs li.active a {
-    color: #a9cd2e;
-    background-color: #101010;
-	border:1px solid #101010;
+    color: #fce206;
+    background-color: #fff;
 }
 
 
@@ -1072,7 +1337,7 @@
 	opacity:0;
 	border-top: 20px solid transparent;
 	border-bottom: 20px solid transparent;
-	border-left: 20px solid #101010;
+	border-left: 20px solid #fff;
 }
 .tabs-left2-holder .responsive-tabs li.active a .arrow-right {
 	opacity:1;
@@ -1087,6 +1352,23 @@
 	margin-bottom:50px;
 	}
 
+@media screen and (max-width: 1366px) {
+
+.tabstyle-14 .responsive-tabs li {
+    width: 219px;
+}
+
+
+
+}
+
+
+
+
+
+}
+
+
 @media only screen and (max-width: 1024px) {
 .tabstyle-5 .responsive-tabs {
     left: 10%;
@@ -1100,6 +1382,28 @@
 
 
 }
+
+@media only screen and (max-width: 991px) {
+
+.tabstyle-13 .responsive-tabs li {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+	 border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+	margin-bottom:20px;
+}
+.tabstyle-13 .responsive-tabs li:last-child {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+	 border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+
+}
+
+
+}
+
+
 
 @media only screen and (max-width: 640px) {
 .tabs-left2-holder .responsive-tabs li a .arrow-right {
@@ -1124,6 +1428,20 @@
 .ttitle strong {
     font-size: 20px;
 }
+.tabstyle-13 .responsive-tabs li {
+    width: 100%;
+
+}
+.tabstyle-13 .responsive-tabs {
+    width: 70%;
+    margin:0 auto;
+}
+
+
+
+
+
+
 
 
 
