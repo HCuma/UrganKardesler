@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using UrganKardesler.DTOs;
 using UrganKardesler.Models;
 using UrganKardesler.ViewModels;
@@ -29,14 +30,14 @@ namespace UrganKardesler.Areas.Admin.Services
 
         public async Task<List<BlogVM>> GetAllAsync()
         {
-            var Blogs = await _dbCTX.Blogs.Where(x => x.isActive).Include(x => x.IdentityUser).ToListAsync();
+            var Blogs = await _dbCTX.Blogs.Where(x => x.isActive).Include(x => x.IdentityUser).OrderByDescending(x => x.CreatedDate).ToListAsync();
 
             var BlogsVM = _mapper.Map<List<BlogVM>>(Blogs);
 
             return BlogsVM;
         }
 
-        public async Task<BlogVM> GetByIdAsync(int id)
+        public async Task<BlogDTO> GetByIdAsync(int id)
         {
             var blog = await _dbCTX.Blogs.Where(x => x.isActive && x.Id == id).FirstOrDefaultAsync();
 
@@ -47,7 +48,7 @@ namespace UrganKardesler.Areas.Admin.Services
 
             blog.IdentityUser = await _dbCTX.Users.FindAsync(blog.AuthorId);
 
-            var blogVM = _mapper.Map<BlogVM>(blog);
+            var blogVM = _mapper.Map<BlogDTO>(blog);
             return blogVM;
         }
 
@@ -72,18 +73,19 @@ namespace UrganKardesler.Areas.Admin.Services
             return result > 0;
         }
 
-        public async Task<BlogVM> UpdateAsync(BlogDTO blog)
+        public async Task<BlogDTO> UpdateAsync(BlogDTO blog)
         {
             var originalBlog = await _dbCTX.Blogs.Where(x => x.isActive && x.Id == blog.Id).FirstOrDefaultAsync();
+            _dbCTX.Entry<Blog>(originalBlog).State = EntityState.Detached;
 
             if (originalBlog == null)
             {
                 return null;
             }
             if (blog.ThumbnailBase64Code is not null)
-            {
                 blog.ThumbnailName = FileService.SaveBase64Image(blog.ThumbnailBase64Code, directoryPath);
-            }
+            else
+                blog.ThumbnailName = originalBlog.ThumbnailName;
 
             var newBlog = _mapper.Map<Blog>(blog);
 
@@ -97,7 +99,7 @@ namespace UrganKardesler.Areas.Admin.Services
 
             if (res > 0)
             {
-                return _mapper.Map<BlogVM>(newBlog);
+                return _mapper.Map<BlogDTO>(newBlog);
             }
             return null;
         }

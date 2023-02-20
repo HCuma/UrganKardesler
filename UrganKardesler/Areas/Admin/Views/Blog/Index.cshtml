@@ -1,5 +1,133 @@
 ﻿@model IEnumerable<UrganKardesler.ViewModels.BlogVM>
 
-@{
-    ViewData["Title"] = "Index";
-}
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <div class="alert aler-success" style="display: none" role="alert">
+        A simple danger alert—check it out!
+    </div>
+<a asp-action="Create" ><button class="btn mb-4 btn-primary">Yeni Oluştur</button></a>
+
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-sm-6 col-xs-12 mb-4 stretch-card">
+                    <div class="card">
+                        <div class="">
+                            <div class="card-media">
+                                <img class="h-100 w-100" style="max-width: 100%; max-height: 100%;" src="~/images/blog/@item.ThumbnailName" />
+                            </div>
+                        </div>
+                        <div class="card-body">
+
+                            <h4 class="card-title"><a asp-action="Details" asp-route-id="@item.Id">  @item.Title</a></h4>
+                            <div class="card-description">
+                                <div class="row">
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <i class="mdi mdi-calendar icon-sm text-danger"></i>
+                                            <p class="mb-0 ms-1"> @item.CreatedDate </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <i class=" mdi mdi-account icon-sm text-danger"></i>
+                                            <p class="mb-0 ms-1"> @item.AuthorName </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <i class="mdi mdi-folder icon-sm text-danger"></i>
+                                            <p class="mb-0 ms-1"> @item.Category </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <p>
+                                @item.ShortDescription
+                            </p>
+                        <a asp-action="Delete" asp-route-id= "@item.Id"><button class="btn btn-danger">Sil</button></a>
+                        <a asp-action="Edit" asp-route-id= "@item.Id"><button class="btn btn-primary">Düzenle</button></a>
+                            
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+
+
+    @section _pageScripts{
+        <script>
+            $(document).ready(function () {
+
+                var isSuccess = @ViewBag.isSuccess;
+                var message = "@ViewBag.message";
+                console.log(isSuccess)
+                console.log(message)
+                console.log(!message)
+                if(!message == false) {
+                    var alertBox = $(".alert");
+
+                    if(isSuccess == 1){
+                        alertBox.removeClass( "alert-danger" ).addClass( "alert-success" );
+                    }else {
+                        alertBox.removeClass( "alert-success" ).addClass( "alert-danger" );
+                    }
+                    alertBox.html(message);
+
+                    alertBox.show("slow");
+
+                    setTimeout(function(){
+                        alertBox.hide("slow")
+                    },3000)
+
+                }
+
+                //function getUrlVars()
+                //{
+                //    var vars = [], hash;
+                //    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                //    for(var i = 0; i < hashes.length; i++)
+                //    {
+                //        hash = hashes[i].split('=');
+                //        vars.push(hash[0]);
+                //        vars[hash[0]] = hash[1];
+                //    }
+                //    return vars;
+                //}
+                //var isSuccess = getUrlVars()["isSuccess"]
+                //var type = getUrlVars()["type"];
+                // console.log("quee",type)
+                //if( isSuccess != null) {
+                //    var alertBox = $(".alert");
+
+                //    if(isSuccess){
+                //        alertBox.removeClass( "alert-danger" ).addClass( "alert-success" );
+                //    }else {
+                //        alertBox.removeClass( "alert-success" ).addClass( "alert-danger" );
+                //    }
+                //    alertBox.show("slow");
+                //    setTimeout(function(){
+                //        alertBox.hide("slow")
+                //    },3000)
+                //    switch (type) {
+                //    case "blogCreate":
+                //            alertBox.html("Blog Başarıyla Oluşturuldu");
+                //            break;
+                //        default : 
+                //            alertBox.html("Başarılı"); 
+                //    } 
+                //}
+@*
+                var alertList = document.querySelectorAll('.alert')
+                alertList.forEach(function (alert) {
+                    new bootstrap.Alert(alert)
+                }) *@
+
+            })
+        </script>
+    }

@@ -9,6 +9,8 @@ namespace UrganKardesler.Areas.Admin.Services
     {
         public static string SaveBase64Image(string base64Code, string directoryPath)
         {
+            base64Code = base64Code.Split(',')[1];
+
             byte[] bytes = Convert.FromBase64String(base64Code);
 
             var fileName = (Directory.GetFiles(directoryPath).Length + 1) + ".jpg";

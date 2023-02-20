@@ -22,22 +22,24 @@ namespace UrganKardesler.Areas.Admin.Controllers
 
             // TODO : düzenle burayı
             //userId = User.FindFirstValue("userId");
-            userId = "asdasd";
+            userId = "88fee870-cada-456c-9968-1f293d3087b5";
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string message, bool isSuccess)
         {
             var Blogs = await _blogService.GetAllAsync();
+
+            ViewBag.isSuccess = isSuccess ? 1 : 0;
+            ViewBag.message = message;
 
             return View(Blogs);
         }
 
-        [HttpDelete]
-        public async Task<JsonResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var res = await _blogService.DeleteById(id);
-            var data = res ? new { success = true, message = "Başarıyla silindi." } : new { success = false, message = "blog silinirken bir hata oluştu." };
-            return new JsonResult(data);
+            var data = res ? new { isSuccess = true, message = "Başarıyla silindi.", area = "Admin" } : new { isSuccess = false, message = "blog silinirken bir hata meydana geldi!", area = "Admin" };
+            return RedirectToAction("Index", data);
         }
 
         public async Task<IActionResult> Create()
@@ -48,37 +50,38 @@ namespace UrganKardesler.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(BlogDTO blog)
         {
-            var result = await _blogService.CreateAsync(blog, userId);
-
-            if (result)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index");
-            }
+                var result = await _blogService.CreateAsync(blog, userId);
+                var data = result ? new { isSuccess = true, message = "Blog Başarıyla Oluşturuldu.", area = "Admin" } : new { isSuccess = false, message = "Blog Oluşturulurken bir hata meydana geldi!", area = "Admin" };
 
-            return RedirectToAction("ErrorPage", "Home", new ErrorDTO() { errorMessage = "Blog oluşturulurken bir hata oluştu!", errorCode = 505 });
-        }
-
-        public async Task<IActionResult> Update(int id)
-        {
-            var blog = await _blogService.GetByIdAsync(id);
-            if (blog is null)
-            {
-                return RedirectToAction("ErrorPage", "Home", new ErrorDTO() { errorCode = 404, errorMessage = "Aradğınız Sayfa Bulunamadı!" });
+                return RedirectToAction("Index", data);
             }
             return View(blog);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update(BlogDTO blog)
+        public async Task<IActionResult> Edit(int id)
         {
-            var result = await _blogService.UpdateAsync(blog);
-
-            if (result is null)
+            var blog = await _blogService.GetByIdAsync(id);
+            if (blog is null)
             {
-                return RedirectToAction("ErrorPage", "Home", new ErrorDTO() { errorMessage = "Blog düzenlenirken bir hata oluştu!", errorCode = 505 });
+                return RedirectToAction("ErrorPage", "Home", new ErrorDTO() { errorCode = 404, errorMessage = "Aradığınız Sayfa Bulunamadı!" });
             }
+            return View(blog);
+        }
 
-            return RedirectToAction("Single", "Blog", new { id = blog.Id });
+        [HttpPost]
+        public async Task<IActionResult> Edit(BlogDTO blog)
+        {
+            if (ModelState.IsValid)
+            {
+                var result = await _blogService.UpdateAsync(blog);
+
+                var data = result is not null ? new { isSuccess = true, message = "Blog Başarıyla Değiştirildi.", area = "Admin" } : new { isSuccess = false, message = "Blog düzenlenirken bir hata meydana geldi!", area = "Admin" };
+
+                return RedirectToAction("Index", data);
+            }
+            return View(blog);
         }
 
         public async Task<IActionResult> Details(int id)
@@ -86,9 +89,9 @@ namespace UrganKardesler.Areas.Admin.Controllers
             var blog = await _blogService.GetByIdAsync(id);
             if (blog is null)
             {
-                return RedirectToAction("ErrorPage", "Home", new ErrorDTO() { errorCode = 404, errorMessage = "Aradğınız Sayfa Bulunamadı!" });
+                return RedirectToAction("ErrorPage", "Home", new ErrorDTO() { errorCode = 404, errorMessage = "Aradığınız Sayfa Bulunamadı!" });
             }
-            return View(blog);
+            return View(_mapper.Map<BlogVM>(blog));
         }
     }
 }

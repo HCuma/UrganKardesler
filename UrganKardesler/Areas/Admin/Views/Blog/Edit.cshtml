@@ -1,7 +1,7 @@
 ﻿@model UrganKardesler.DTOs.BlogDTO
 
 @{
-    ViewBag.Title = "Create A New Blog";
+    ViewBag.Title = "Edit - "+Model.Title;
 }
 
 @section _pageStyles{
@@ -12,49 +12,51 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Create A New Blog</h4>
-            <form class="forms-sample" method="post" asp-action="Create">
-
+            <h4 class="card-title">Edit - @Model.Title</h4>
+            <form class="forms-sample" method="post" asp-action="Edit">
                 <div class="form-group">
                     <div class="col-12 border-1x w-100 h-100 ">
-                        <image id="preview" style="width : inherit; height : inherit;"></image>
+                        <image src="/images/blog/@Model.ThumbnailName" id="preview" style="width : inherit; height : inherit;"></image>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Thumbnail Yükle</label>
                     <input type="file" name="img[]" id="thumbnailInput" class="file-upload-default">
                     <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Thumbnail Yükle">
+                        <input value="@Model.ThumbnailName" type="text" class="form-control file-upload-info" disabled="" placeholder="Thumbnail Yükle">
                         <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
                         </span>
                     </div>
 
                     <input type="hidden" asp-for="ThumbnailBase64Code" id="base64" />
+                    <input type="hidden" asp-for="AuthorName" value="@Model.ThumbnailName"/>
                 </div>
                 <div class="form-group">
                     <label for="title">Başlık</label>
-                    <input asp-for="Title" type="text" required minlength="3" maxlength="60" class="form-control" id="title" placeholder="Başlık">
+                    <input asp-for="Title" type="text" value="@Model.Title" required minlength="3" maxlength="60" class="form-control" id="title" placeholder="Başlık">
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label for="category">Kategori</label>
-                    <input asp-for="Category" required minlength="3" maxlength="25" type="text" class="form-control" id="category" placeholder="Kategori">
+                    <input asp-for="Category" minlength="3" maxlength="25" required value="@Model.Category" type="text" class="form-control" id="category" placeholder="Kategori">
                     <span asp-validation-for="Category" class="text-danger"></span>
+
                 </div>
                 <div class="form-group">
                     <label for="shortDesc">Kısa Açıklama</label>
-                    <textarea asp-for="ShortDescription" required minlength="30" maxlength="250" class="form-control" id="shortDesc" placeholder="Kısa Açıklama"></textarea>
+                    <textarea asp-for="ShortDescription" minlength="30" required maxlength="250" class="form-control" id="shortDesc" placeholder="Kısa Açıklama">@Model.ShortDescription</textarea>
                     <span asp-validation-for="ShortDescription" class="text-danger"></span>
+
                 </div>
                 *<div class="form-group">
                     <label for="article">Makale</label>
-                    <textarea asp-for="Article" inputmode="latin" required minlength="70" class="form-control" id="article" rows="4"></textarea>
+                    <textarea asp-for="Article" inputmode="latin" required minlength="50" class="form-control" id="article" rows="4">@Model.Article</textarea>
                     <span asp-validation-for="Article" class="text-danger"></span>
                 </div>
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                <button type="submit" class="btn btn-primary mr-2">Oluştur</button>
+                <button type="submit" class="btn btn-primary mr-2">Onayla</button>
             </form>
         </div>
     </div>
@@ -89,7 +91,7 @@
 
                 const file = event.target.files[0];
                 const base64 = await convertBase64(file);
-                avatar.attr("src",base64);
+                avatar.attr("src", base64);
                 base64input.val(base64);
 
                 console.warn(base64);

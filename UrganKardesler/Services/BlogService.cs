@@ -26,7 +26,7 @@ namespace UrganKardesler.Services
 
         public async Task<List<BlogVM>> GetAllAsync()
         {
-            var Blogs = await _dbCTX.Blogs.Where(x => x.isActive).Include(x => x.IdentityUser).ToListAsync();
+            var Blogs = await _dbCTX.Blogs.Where(x => x.isActive).Include(x => x.IdentityUser).OrderByDescending(x => x.CreatedDate).ToListAsync();
 
             var BlogsVM = _mapper.Map<List<BlogVM>>(Blogs);
 

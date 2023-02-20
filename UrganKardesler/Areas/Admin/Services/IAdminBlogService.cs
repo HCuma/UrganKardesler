@@ -7,13 +7,13 @@ namespace UrganKardesler.Areas.Admin.Services
 {
     public interface IAdminBlogService
     {
-        public Task<BlogVM> GetByIdAsync(int id);
+        public Task<BlogDTO> GetByIdAsync(int id);
 
         public Task<List<BlogVM>> GetAllAsync();
 
         public Task<bool> CreateAsync(BlogDTO blog, string userId);
 
-        public Task<BlogVM> UpdateAsync(BlogDTO blog);
+        public Task<BlogDTO> UpdateAsync(BlogDTO blog);
 
         public Task<bool> DeleteById(int id);
     }

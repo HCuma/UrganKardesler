@@ -229,7 +229,8 @@ namespace UrganKardesler.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Category")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");

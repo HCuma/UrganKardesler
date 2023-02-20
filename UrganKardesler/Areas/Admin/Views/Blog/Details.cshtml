@@ -3,3 +3,54 @@
 @{
     ViewBag.Title = Model.Title;
 }
+<div class="card">
+
+    <div class="card-media">
+        <img class="h-100 w-100" style="max-width: 100%; max-height: 100%;" src="~/images/blog/@Model.ThumbnailName" />
+    </div>
+    
+    <div class="card-body">
+          <h4 class="card-title"><a asp-action="Details" asp-route-id="@Model.Id">  @Model.Title</a></h4>
+                            <div class="card-description">
+                                <div class="row">
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <i class="mdi mdi-calendar icon-sm text-danger"></i>
+                                            <p class="mb-0 ms-1"> @Model.CreatedDate </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <i class=" mdi mdi-account icon-sm text-danger"></i>
+                                            <p class="mb-0 ms-1"> @Model.AuthorName </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 d-flex align-items-center">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <i class="mdi mdi-folder icon-sm text-danger"></i>
+                                            <p class="mb-0 ms-1"> @Model.Category </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <p>
+                                @Model.ShortDescription
+                            </p>
+                            
+
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-6">
+                <a asp-action="Delete" asp-route-id= "@Model.Id"><button class="btn btn-danger">Sil</button></a>
+
+            </div>
+            <div class="col-6">
+                <a asp-action="Edit" asp-route-id= "@Model.Id"><button class="btn btn-primary">Düzenle</button></a>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using UrganKardesler.ViewModels;
+using UrganKardesler.DTOs;
 
 namespace UrganKardesler.Models
 {
@@ -39,6 +40,6 @@ namespace UrganKardesler.Models
                 .HasData(newCorporates);
         }
 
-        public DbSet<UrganKardesler.ViewModels.BlogVM> BlogVM { get; set; }
+        public DbSet<UrganKardesler.DTOs.BlogDTO> BlogDTO { get; set; }
     }
 }
