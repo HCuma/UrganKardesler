@@ -35,6 +35,13 @@ namespace UrganKardesler
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<UrganKardeslerDbCTX>();
 
+            services.ConfigureApplicationCookie(config =>
+            {
+                config.AccessDeniedPath = "/Admin/Account/Login";
+                config.LoginPath = "/Admin/Account/Login";
+                config.LogoutPath = "/Admin/Account/LogOut";
+            });
+
             services.AddControllersWithViews();
 
             services.AddAutoMapper(typeof(Startup));

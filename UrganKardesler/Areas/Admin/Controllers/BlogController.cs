@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using UrganKardesler.ViewModels;
 namespace UrganKardesler.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class BlogController : Controller
     {
         private readonly IMapper _mapper;
@@ -23,6 +25,8 @@ namespace UrganKardesler.Areas.Admin.Controllers
             // TODO : düzenle burayı
             //userId = User.FindFirstValue("userId");
             userId = "88fee870-cada-456c-9968-1f293d3087b5";
+            var x = User;
+            // TODO : Check this out
         }
 
         public async Task<IActionResult> Index(string message, bool isSuccess)
