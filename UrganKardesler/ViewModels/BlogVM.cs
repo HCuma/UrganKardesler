@@ -4,7 +4,7 @@ namespace UrganKardesler.ViewModels
 {
     public record BlogVM
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Article { get; set; }
         public DateTime CreatedDate { get; set; }
@@ -12,5 +12,6 @@ namespace UrganKardesler.ViewModels
         public string ShortDescription { get; set; }
         public string ThumbnailName { get; set; }
         public string Category { get; set; }
+        public bool isActive { get; set; }
     }
 }

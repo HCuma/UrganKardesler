@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Converters;
 using System.IO;
 using System.Threading.Tasks;
+using UrganKardesler.DTOs;
 using UrganKardesler.Services;
 
 namespace UrganKardesler.Controllers
@@ -24,13 +25,13 @@ namespace UrganKardesler.Controllers
             return View(blogs);
         }
 
-        public async Task<IActionResult> Single(int id)
+        public async Task<IActionResult> Details(int id)
         {
             var blog = await _blogService.GetByIdAsync(id);
 
             if (blog is null)
             {
-                return RedirectToAction("ErrorPage", "Home");
+                return RedirectToAction("ErrorPage", "Home", new ErrorDTO() { errorMessage = "Aradığınız sayfa bulunamadı", errorCode = 404 });
             }
 
             return View(blog);

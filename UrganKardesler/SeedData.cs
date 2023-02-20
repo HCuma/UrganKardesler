@@ -49,7 +49,8 @@ namespace UrganKardesler
                     AuthorId = user.Id,
                     CreatedDate = DateTime.UtcNow,
                     Category = "Bussines",
-                    ThumbnailName = "first.jpg"
+                    ThumbnailName = "first.jpg",
+                    isActive = true
                 };
 
                 DbCTX.Blogs.Add(newBlog);

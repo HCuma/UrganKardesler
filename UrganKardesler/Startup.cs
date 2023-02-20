@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UrganKardesler.Areas.Admin.Services;
 using UrganKardesler.Models;
 using UrganKardesler.Services;
 
@@ -41,6 +42,7 @@ namespace UrganKardesler
             services.AddScoped<UrganKardeslerDbCTX>();
             services.AddScoped<ICorporateService, CorporateService>();
             services.AddScoped<IBlogService, BlogService>();
+            services.AddScoped<IAdminBlogService, AdminBlogService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,7 +71,7 @@ namespace UrganKardesler
             {
                 endpoints.MapControllerRoute(
                   name: "areas",
-                  pattern: "{area:exists}/{controller=_Home}/{action=Index}/{id?}"
+                  pattern: "{area:exists}/{controller=Blog}/{action=Index}/{id?}"
                 );
                 endpoints.MapControllerRoute(
                     name: "default",

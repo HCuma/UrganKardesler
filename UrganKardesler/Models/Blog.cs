@@ -29,5 +29,7 @@ namespace UrganKardesler.Models
         public IdentityUser IdentityUser { get; set; }
 
         public string Category { get; set; }
+
+        public bool isActive { get; set; }
     }
 }

@@ -1,0 +1,105 @@
+﻿@model UrganKardesler.DTOs.BlogDTO
+
+@{
+    ViewBag.Title = "Create A New Blog";
+}
+
+@section _pageStyles{
+    <link rel="stylesheet" href="~/AdminAssets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="~/AdminAssets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create A New Blog</h4>
+            <form class="forms-sample" method="post" asp-action="Create">
+                <div class="form-group">
+                    <div class="col-12 border-1x w-100 h-100 ">
+                        <image id="preview" style="width : inherit; height : inherit;"></image>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Thumbnail Yükle</label>
+                    <input type="file" name="img[]" id="thumbnailInput" class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Thumbnail Yükle">
+                        <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
+                        </span>
+                    </div>
+                </div><div class="input-group col-xs-12">
+                    <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                    <span class="input-group-append">
+                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                    </span>
+                </div>
+
+                <input type="hidden" asp-for="ThumbnailBase64Code" id="base64" />
+                <div class="form-group">
+                    <label for="title">Başlık</label>
+                    <input asp-for="Title" type="text" required minlength="3" maxlength="60" class="form-control" id="title" placeholder="Başlık">
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label for="category">Kategori</label>
+                    <input asp-for="Category" minlength="3" type="text" class="form-control" id="category" placeholder="Kategori">
+                </div>
+                <div class="form-group">
+                    <label for="shortDesc">Kısa Açıklama</label>
+                    <textarea asp-for="ShortDescription" minlength="30" maxlength="250" class="form-control" id="shortDesc" placeholder="Kısa Açıklama"></textarea>
+                </div>
+                *<div class="form-group">
+                    <label for="article">Makale</label>
+                    <textarea asp-for="Article" inputmode="latin" minlength="50" class="form-control" id="article" rows="4"></textarea>
+                    <span asp-validation-for="Article"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Oluştur</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section _pageScripts{
+    <script src="~/AdminAssets/js/file-upload.js"></script>
+    <script src="~/AdminAssets/js/typeahead.js"></script>
+    <script src="~/AdminAssets/js/select2.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            console.log("readyyyyyyyyyy");
+
+            const avatar = $("#preview");
+            const base64input = $("#base64");
+            const convertBase64 = (file) => {
+                return new Promise((resolve, reject) => {
+                    const fileReader = new FileReader();
+                    fileReader.readAsDataURL(file);
+
+                    fileReader.onload = () => {
+                        resolve(fileReader.result);
+                    };
+
+                    fileReader.onerror = (error) => {
+                        reject(error);
+                    };
+                });
+            };
+
+            $("#thumbnailInput").on("change", async function (event) {
+                alert("changed");
+
+                const file = event.target.files[0];
+                const base64 = await convertBase64(file);
+                avatar.src = base64;
+                base64input.val(base64);
+                console.warn(base64);
+            });
+            const input = document.getElementById("thumbnailInput");
+            input.addEventListener("change", (e) => {
+                console.log("normalden");
+            });
+
+        });
+    </script>
+}

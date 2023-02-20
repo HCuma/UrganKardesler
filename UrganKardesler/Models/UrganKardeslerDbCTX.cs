@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using UrganKardesler.ViewModels;
 
 namespace UrganKardesler.Models
 {
@@ -37,5 +38,7 @@ namespace UrganKardesler.Models
             builder.Entity<Corporate>()
                 .HasData(newCorporates);
         }
+
+        public DbSet<UrganKardesler.ViewModels.BlogVM> BlogVM { get; set; }
     }
 }

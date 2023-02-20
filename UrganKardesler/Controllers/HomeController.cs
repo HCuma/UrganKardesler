@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using UrganKardesler.DTOs;
 using UrganKardesler.Models;
 
 namespace UrganKardesler.Controllers
@@ -32,9 +33,9 @@ namespace UrganKardesler.Controllers
             return View();
         }
 
-        public IActionResult ErrorPage()
+        public IActionResult ErrorPage(ErrorDTO errorDTO)
         {
-            return View();
+            return View(errorDTO);
         }
     }
 }
