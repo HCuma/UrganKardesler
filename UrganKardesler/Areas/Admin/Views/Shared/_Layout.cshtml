@@ -21,10 +21,6 @@
     @await RenderSectionAsync("_pageStyles", required: false)
 </head>
 <body>
-    @{
-        var x = User;
-        var s = 1;
-    }
     <div class="container-scroller">
         <!-- partial:../../partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -51,7 +47,7 @@
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                             <div class="nav-profile-img">
-                                <img src="~/AdminAssets/images/face28.jpg" alt="image">
+                                <img src="~/AdminAssets/images/face28.png" alt="image">
                             </div>
                             <div class="nav-profile-text">
                                 <p class="mb-1 text-black">@User.Identity.Name</p>
@@ -59,7 +55,7 @@
                         </a>
                         <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
                             <div class="p-3 text-center bg-primary">
-                                <img class="img-avatar img-avatar48 img-avatar-thumb" src="~/AdminAssets/images/face28.jpg" alt="">
+                                <img class="img-avatar img-avatar48 img-avatar-thumb" src="~/AdminAssets/images/face28.png" alt="">
                             </div>
                             <div class="p-2">
                                 <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" asp-action="LogOut" asp-controller="Account" >
@@ -82,15 +78,15 @@
                 <ul class="nav">
                     <li class="nav-item nav-category">Main</li>
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link" asp-action="index" asp-controller="blog">
                             <span class="icon-bg"><i class="mdi mdi-book-open-page-variant "></i></span>
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title">Blog</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-action="index" asp-controller="blog">
+                        <a  asp-action="index" asp-controller="Corporate" class="nav-link" >
                             <span class="icon-bg"><i class="mdi mdi-book-open-page-variant "></i></span>
-                            <span class="menu-title">Blogs</span>
+                            <span class="menu-title">Kurumsal</span>
                         </a>
                     </li>
                     <li class="nav-item sidebar-user-actions">
@@ -99,7 +95,7 @@
                                 <div>
                                     <div class="d-flex align-items-center">
                                         <div class="sidebar-profile-img">
-                                            <img src="~/AdminAssets/images/face28.jpg" alt="image">
+                                            <img src="~/AdminAssets/images/face28.png" alt="image">
                                         </div>
                                         <div class="sidebar-profile-text">
                                             <p class="mb-1">@User.Identity.Name</p>

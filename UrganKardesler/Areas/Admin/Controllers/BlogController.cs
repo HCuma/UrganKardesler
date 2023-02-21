@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,15 +18,14 @@ namespace UrganKardesler.Areas.Admin.Controllers
         private readonly IAdminBlogService _blogService;
         private readonly string userId;
 
-        public BlogController(IMapper mapper, IAdminBlogService blogService)
+        public BlogController(IMapper mapper, IAdminBlogService blogService, IHttpContextAccessor contextAccessor)
         {
             _mapper = mapper;
             _blogService = blogService;
 
             // TODO : düzenle burayı
             //userId = User.FindFirstValue("userId");
-            userId = "88fee870-cada-456c-9968-1f293d3087b5";
-            var x = User;
+            userId = contextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             // TODO : Check this out
         }
 

@@ -41,7 +41,7 @@ namespace UrganKardesler
                 config.LoginPath = "/Admin/Account/Login";
                 config.LogoutPath = "/Admin/Account/LogOut";
             });
-
+            services.AddHttpContextAccessor();
             services.AddControllersWithViews();
 
             services.AddAutoMapper(typeof(Startup));

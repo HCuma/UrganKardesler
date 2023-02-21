@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Kurumsal";
+}
+
+@model List<UrganKardesler.Models.Corporate>
+    
+    <div class="alert aler-success" style="display: none" role="alert">
+        A simple danger alert—check it out!
+    </div>
+
+<div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 col-sm-12 mb-4 stretch-card ">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">@item.DisplayTitle</div>
+                        <div class="card-description">
+                            <textarea class="CorporateArea w-100 h-100 @item.Title" style="min-height: 27vh;" >@item.Article</textarea>
+                            <button data-id="@item.Id" name="@item.Title" class="corporateBtn  my-3 btn btn-primary">Güncelle</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+</div>
+
+@section _pageScripts{
+    <script>    
+        $(document).ready(function (){
+            $(".corporateBtn").on("click",function(event ) {
+                const target = event.target;
+                const button =$(this);
+                console.log(button.attr("name"))
+                console.log(target.getAttribute("name"))
+                console.log(button)
+                console.log(button.html())
+                const CorporateArticle = $("."+button.attr("name")).val();
+
+                const data = {
+                    Id : button.attr("data-id"),
+                    Article :CorporateArticle
+                }
+
+                console.log(data);
+                var alertBox = $(".alert");
+
+                $.post( "/Admin/Corporate/Update", data)
+                    .always(function(data){
+                        console.log("alw",data)
+                        alertBox.html(data.message)
+                        if(data.isSuccess){
+                            alertBox.removeClass( "alert-danger" ).addClass( "alert-success" );
+                        }else {
+                            alertBox.removeClass( "alert-success" ).addClass( "alert-danger" );
+                        }
+                        alertBox.show("slow");
+                        setTimeout(function(){
+                            alertBox.hide("slow")
+                        },3000)
+                    })
+
+            })
+        })
+    </script>
+}
