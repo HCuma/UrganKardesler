@@ -31,10 +31,6 @@
             $(".corporateBtn").on("click",function(event ) {
                 const target = event.target;
                 const button =$(this);
-                console.log(button.attr("name"))
-                console.log(target.getAttribute("name"))
-                console.log(button)
-                console.log(button.html())
                 const CorporateArticle = $("."+button.attr("name")).val();
 
                 const data = {

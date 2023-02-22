@@ -23,10 +23,7 @@ namespace UrganKardesler.Areas.Admin.Controllers
             _mapper = mapper;
             _blogService = blogService;
 
-            // TODO : düzenle burayı
-            //userId = User.FindFirstValue("userId");
             userId = contextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            // TODO : Check this out
         }
 
         public async Task<IActionResult> Index(string message, bool isSuccess)

@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  urgankardeslerDb: 
+    container_name: urgankardeslerDb
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password12*
+  urgankardesler:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:DefaultConnection=Server=urgankardeslerDb,1433;Database=master; User=sa; Password=Password12*"
+    ports:
+      - "5000:80"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+    depends_on: 
+      - urgankardeslerDb

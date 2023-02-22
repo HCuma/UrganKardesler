@@ -1,0 +1,7 @@
+version: '3.4'
+
+services:
+  urgankardeslerDb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+  urgankardesler:
+    image: cuma752/urgankardesler:latest
