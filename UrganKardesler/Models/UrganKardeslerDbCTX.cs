@@ -39,7 +39,5 @@ namespace UrganKardesler.Models
             builder.Entity<Corporate>()
                 .HasData(newCorporates);
         }
-
-        public DbSet<UrganKardesler.DTOs.BlogDTO> BlogDTO { get; set; }
     }
 }

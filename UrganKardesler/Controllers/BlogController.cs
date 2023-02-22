@@ -36,5 +36,13 @@ namespace UrganKardesler.Controllers
 
             return View(blog);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(string searchString)
+        {
+            var blogs = await _blogService.GetByTitleAsync(searchString);
+
+            return View(blogs);
+        }
     }
 }

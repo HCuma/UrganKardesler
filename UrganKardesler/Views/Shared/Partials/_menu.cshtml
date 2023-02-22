@@ -4,7 +4,7 @@
                     <div class="container">
                         <div class="mod-menu">
                             <div class="row">
-                                <div class="col-sm-2"> <a href="index.html" title="" class="logo mar-4"> <img src="~/images/logo/logoyeni.png" alt=""> </a> </div>
+                                <div class="col-sm-2"> <a asp-action="Index" asp-controller="Home" title="" class="logo mar-4"> <img src="~/images/logo/logoyeni.png" alt=""> </a> </div>
                                 <div class="col-sm-10">
                                     <div class="main-nav">
                                         <ul class="nav navbar-nav top-nav">
@@ -12,11 +12,13 @@
                                                 <a href="javascript:void(0)" title=""><i aria-hidden="true" class="fa fa-search"></i></a>
                                                 <div class="search-box">
                                                     <div class="content">
-                                                        <div class="form-control">
-                                                            <input type="text" placeholder="Type to search" />
-                                                            <a href="#" class="search-btn"><i aria-hidden="true" class="fa fa-search"></i></a>
+                                                       <form method="post" asp-action="Index" asp-controller="Blog">
+                                                            <div class="form-control">
+                                                    <input type="text" name="searchString" id="searchString" placeholder="Blog Ara" />
+                                                   <button type="submit" class="search-btn" ><i aria-hidden="true" class="fa fa-search"></i></button>
                                                         </div>
-                                                        <a href="#" class="close-btn">x</a>
+                                                         <a href="#" class="close-btn">x</a>
+                                                       </form>
                                                     </div>
                                                 </div>
                                             </li>

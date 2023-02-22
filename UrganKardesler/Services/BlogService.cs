@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Threading.Tasks;
 using UrganKardesler.Areas.Admin.Services;
 using UrganKardesler.Models;
@@ -28,6 +29,10 @@ namespace UrganKardesler.Services
         {
             var Blogs = await _dbCTX.Blogs.Where(x => x.isActive).Include(x => x.IdentityUser).OrderByDescending(x => x.CreatedDate).ToListAsync();
 
+            if (Blogs.Count == 0)
+            {
+                return null;
+            }
             var BlogsVM = _mapper.Map<List<BlogVM>>(Blogs);
 
             return BlogsVM;
@@ -46,6 +51,19 @@ namespace UrganKardesler.Services
 
             var blogVM = _mapper.Map<BlogVM>(blog);
             return blogVM;
+        }
+
+        public async Task<List<BlogVM>> GetByTitleAsync(string title)
+        {
+            var blogs = await _dbCTX.Blogs.Where(i => i.Title.Contains(title)).ToListAsync();
+
+            if (blogs.Count == 0)
+            {
+                return null;
+            }
+            var mappedBlogs = _mapper.Map<List<BlogVM>>(blogs);
+
+            return mappedBlogs;
         }
     }
 }
